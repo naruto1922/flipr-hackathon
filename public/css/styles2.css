@@ -1,0 +1,30 @@
+.nav-item {
+  font-size: 1.1rem;
+  padding: 1% 6% 1%;
+}
+
+#mainNavBar {
+  padding: 2rem 0rem 2rem;
+  /* margin-bottom: 3rem; */
+}
+
+.nav-link {
+  margin-right: 2rem;
+  padding-right: 3rem;
+}
+#navbarDropdownMenuLink {
+  font-size: 1.2rem;
+}
+
+
+
+.graphh {
+  text-align: center;
+  margin-left: 3rem;
+  margin-right:3rem;
+}
+
+body {
+  text-align: center;
+}
+

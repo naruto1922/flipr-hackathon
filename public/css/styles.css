@@ -1,0 +1,34 @@
+h4 {
+  color: pink;
+  padding-bottom: 1rem;
+  /* color: linear-gradient(rgb(35, 76, 99), rgb(25, 9, 43), rgb(7, 24, 39)); */
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  margin-bottom: 1rem;
+}
+
+.gradient-form {
+  background-image: linear-gradient(
+    rgb(35, 76, 99),
+    rgb(25, 9, 43),
+    rgb(7, 24, 39)
+  );
+}
+
+.btn-block {
+  background-image: linear-gradient(
+    rgb(35, 76, 99),
+    rgb(25, 9, 43),
+    rgb(7, 24, 39)
+  );
+}
+
+#login-btn:hover {
+  color: rgb(35, 76, 99);
+}
