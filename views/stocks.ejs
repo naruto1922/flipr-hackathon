@@ -96,14 +96,15 @@
       </div>
     </nav>
 
-    <%  if(current!="Home" &&  current!="contact") {    %>
+    <%  if(current!="Home" &&  current!="connect") {    %>
 
 
     <div class="container-fluid">
       <h1>  <%= current %> Trends </h1>
       <div class="container-fluid">
-        <img class="graphh" src="images/chart.png"  style="text-align: center;" alt="">
-
+        <img class="graphh" src="images/chart.png"  style="text-align: center; width: auto; margin-bottom:4rem" alt="">
+       
+            
        
        
           <form action="/days", method="post">
@@ -118,13 +119,18 @@
       </div>
     </div>
     
-    <%  }   %>
+    <%  }   else  { %>
+    <div class="container-fluid" style="text-align: center;">
+<img src="images/giphy.gif" alt="">
+    </div>
+
+    <% } %>
     
   </body>
 
   <footer>
     <div class="container-fluid">
-      <form action="/contact" method="post">
+      <form action="/connect" method="post">
         <button class="btn btn-outline-success"   type="submit">Connect with us</button>
       </form>
      

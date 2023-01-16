@@ -38,8 +38,8 @@ app.post("/days",function(req,res) {
   
 })
 
-app.post("/contact",function(req,res) {
-  res.render("connect");
+app.post("/connect",function(req,res) {
+  res.render("connect",{comp:comp, ind:ind});
 
 })
 
@@ -130,7 +130,7 @@ app.get("/:something", (request, response) => {
     dataa.length=0;
    var curr=request.params.something;
   
-   if(curr=="contact") response.render("connect");
+   if(curr=="connect") response.render("connect" , {comp:comp, ind:ind});
     console.log(curr);
     current=curr;
 

@@ -18,13 +18,12 @@
 }
 
 
-
-.graphh {
-  /* text-align: center;
+ .graphh {
+   /* text-align: center;
   margin-left: 3rem;
   margin-right:3rem; */
   margin-bottom: 2rem;
-}
+} 
 
 body {
   text-align: center;
@@ -38,7 +37,7 @@ footer {
   background-color:#CBEDD5;
   text-align: center;
   padding-bottom: 1rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
   padding-top: 1rem;
 }
 
