@@ -3,7 +3,8 @@ const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const CONNECTION_URL =
-  "mongodb+srv://naruto1922:Vinay123@cluster0.tnpjvpd.mongodb.net/?retryWrites=true&w=majority";
+"mongodb+srv://naruto1922:Vinay123@cluster0.tnpjvpd.mongodb.net/test";
+  // "mongodb+srv://naruto1922:Vinay123@cluster0.tnpjvpd.mongodb.net/?retryWrites=true&w=majority";
 const DATABASE_NAME = "FliprHackathon";
 var app = Express();
 
@@ -22,9 +23,25 @@ app.get("/", function (req, res) {
   res.render("login");
 });
 
+var temp=-1;
+
 app.post("/", function (req, res) {
+ 
   res.render("stocks", { current: current, comp:comp, ind:ind });
 });
+
+
+app.post("/days",function(req,res) {
+  temp=req.body.days;
+  var url = "/"+current;
+   res.redirect(url);
+  
+})
+
+app.post("/contact",function(req,res) {
+  res.render("connect");
+
+})
 
 var labelss = [];
 var dataa = [];
@@ -35,9 +52,9 @@ const PORT = process.env.PORT || 3000;
 const fs = require("fs");
 const { ChartJSNodeCanvas } = require("chartjs-node-canvas");
 
-const width = 400; //px
+const width = 1200; //px
 const height = 400; //px
-const backgroundColour = "white"; // Uses https://www.w3schools.com/tags/canvas_fillstyle.asp
+const backgroundColour = "#e3f3e8"; // Uses https://www.w3schools.com/tags/canvas_fillstyle.asp
 const chartJSNodeCanvas = new ChartJSNodeCanvas({
   width,
   height,
@@ -50,25 +67,46 @@ const configuration = {
     labels: labelss,
     datasets: [
       {
-        label:" plot",
+
+        label:" value/index",
         data: dataa,
         fill: false,
-        borderColor: ["rgb(51, 204, 204)"],
+        borderColor: ["#439A97"],
         // borderWidth: 1,
-        xAxisID: "xAxis1", //define top or bottom axis ,modifies on scale
+        // xAxisID: "xAxis1", //define top or bottom axis ,modifies on scale
         pointStyle:false,
         pointRadius:0
       }
     ],
   },
   options: {
+    responsive: true,
     scales: {
-      y: {
-        suggestedMin: 0,
+      x: {
+        title: {
+          display:true,
+          text:"Days"
+        }
+       
+        
       },
+
+    y: {
+      title: {
+        display:true,
+        text:"Mean of Low & High"
+      }
+     
+      
+    },
+
+      // y: {
+      //   suggestedMin: 0,
+      // },
     },
   },
 };
+
 
 async function run() {
   const dataUrl = await chartJSNodeCanvas.renderToDataURL(configuration);
@@ -91,6 +129,8 @@ app.get("/:something", (request, response) => {
     labelss.length=0;
     dataa.length=0;
    var curr=request.params.something;
+  
+   if(curr=="contact") response.render("connect");
     console.log(curr);
     current=curr;
 
@@ -123,16 +163,23 @@ app.get("/:something", (request, response) => {
 
       var avg = Number(result[i].Low) + Number(result[i].High);
       avg /= 2;
-      if((i%30)===0)
-      labelss.push(month[idx++]);
-      else labelss.push(" ");
+     
+      labelss.push((i+1));
+    
 
       if(idx==12) idx=0;
       dataa.push(avg);
 
     }
-
- 
+    
+    if(temp!=-1 && (temp<1000 && temp>0))
+    {
+      dataa.length=temp;
+      labelss.length=temp;
+      temp=-1;
+    }
+    
+    temp=-1;
      run();
 
     response.render("stocks",{current:current, comp:comp, ind:ind});
@@ -143,7 +190,9 @@ app.get("/:something", (request, response) => {
 
 
 
+
 app.listen(PORT, () => {
+
   MongoClient.connect(
     CONNECTION_URL,
     { useNewUrlParser: true },
@@ -157,3 +206,5 @@ app.listen(PORT, () => {
     }
   );
 });
+
+

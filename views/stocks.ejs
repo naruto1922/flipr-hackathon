@@ -21,15 +21,18 @@
     ></script>
 
     <link rel="stylesheet" href="css/styles2.css" />
+
+     <!-- FAVICON -->
+<link rel="favicon" href="favicon.io">
   </head>
   <body>
     <nav
       id="mainNavBar"
       class="navbar navbar-expand-lg navbar-light"
-      style="background-color: rgb(219, 219, 219)"
+      style="background-color: #CBEDD5"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        
           <a
             class="nav-link active dropdown-toggle"
             href="#"
@@ -44,7 +47,7 @@
             <li><a  class="dropdown-item" href="/BSE">BSE</a></li>
             <li><a class="dropdown-item" href="/NSE">NSE</a></li>
           </ul>
-        </a>
+        
 
         <a
           class="nav-link dropdown-toggle"
@@ -78,7 +81,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav my-lg-0 my-2 my-sm-0">
             <li class="nav-item">
               <a class="nav-link" href="#">Future</a>
             </li>
@@ -93,15 +96,41 @@
       </div>
     </nav>
 
+    <%  if(current!="Home" &&  current!="contact") {    %>
+
+
     <div class="container-fluid">
-      <h1> You are seeing <%= current %> company information </h1>
-     
+      <h1>  <%= current %> Trends </h1>
       <div class="container-fluid">
         <img class="graphh" src="images/chart.png"  style="text-align: center;" alt="">
-      </div>
+
+       
+       
+          <form action="/days", method="post">
+            <div class="ranger" style="text-align:center">
+              <h4> Like to decrease the range?</h4>
+              <input name="days" class="days" type="text" placeholder="Enter no. of days (<1000)" style="width:20% ">
+            <button type="submit" class="btn btn-md btn-success"> Enter</button>
+          </div>
+          </form>
          
+     
+      </div>
     </div>
     
+    <%  }   %>
     
   </body>
+
+  <footer>
+    <div class="container-fluid">
+      <form action="/contact" method="post">
+        <button class="btn btn-outline-success"   type="submit">Connect with us</button>
+      </form>
+     
+      <p style="padding-top:1rem">Coyright@2023</p>
+      <h5> Stocks Market Index & Company</h5>
+    </div>
+
+  </footer>
 </html>

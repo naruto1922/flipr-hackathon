@@ -5,12 +5,13 @@
 
 #mainNavBar {
   padding: 2rem 0rem 2rem;
+  margin-bottom: 2rem;
   /* margin-bottom: 3rem; */
 }
 
 .nav-link {
-  margin-right: 2rem;
-  padding-right: 3rem;
+  margin-left: 1rem;
+  padding-right: 1rem;
 }
 #navbarDropdownMenuLink {
   font-size: 1.2rem;
@@ -19,12 +20,38 @@
 
 
 .graphh {
-  text-align: center;
+  /* text-align: center;
   margin-left: 3rem;
-  margin-right:3rem;
+  margin-right:3rem; */
+  margin-bottom: 2rem;
 }
 
 body {
   text-align: center;
+  background-color: rgb(242, 251, 248);
 }
 
+
+
+
+footer {
+  background-color:#CBEDD5;
+  text-align: center;
+  padding-bottom: 1rem;
+  margin-top: 4rem;
+  padding-top: 1rem;
+}
+
+
+h1 {
+  color:rgb(1, 77, 51)
+}
+
+.range {
+  width: 20%;
+  text-align: center;
+}
+
+.days {
+  margin-right: 0.5rem;
+}

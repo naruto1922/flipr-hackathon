@@ -1,0 +1,17 @@
+body {
+  background-color: blanchedalmond;
+}
+
+.container-fluid {
+  text-align: center;
+  padding: 4rem 5rem 2rem;
+}
+
+.pic {
+  width: 50px;
+}
+
+.item {
+  padding-left: 3rem;
+  padding-bottom: 10rem;
+}
